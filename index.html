@@ -19,11 +19,6 @@
     body {
       min-height: 100vh;
       background: black;
-      background-image: url('https://media1.giphy.com/media/11d56KBoMq5Yti/giphy.gif');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -31,6 +26,19 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+      pointer-events: none;
     }
 
     body::before {
@@ -73,8 +81,10 @@
     .glass::after {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 2rem;
       backdrop-filter: blur(1px);
@@ -111,6 +121,13 @@
   </style>
 </head>
 <body>
+
+  <!-- 🔁 Background video -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="background.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
   <div class="container">
     <div class="glass">
       <img src="profile.png" alt="XRS Profile Picture" class="profile-pic" />
@@ -126,14 +143,14 @@
       </div>
     </div>
 
-<div class="glass" style="margin-top: 2rem;">
-  <h2 class="card-title">Contact</h2>
-  <div class="card-content" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
-    <img src="discord.png" alt="Discord" style="width: 30px; height: 24px;" />
-    - linux_best1
+    <div class="glass" style="margin-top: 2rem;">
+      <h2 class="card-title">Contact</h2>
+      <div class="card-content" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+        <img src="discord.png" alt="Discord" style="width: 30px; height: 24px;" />
+        - linux_best1
+      </div>
+    </div>
   </div>
-</div>
-  </div>
-</body>
 
+</body>
 </html>
